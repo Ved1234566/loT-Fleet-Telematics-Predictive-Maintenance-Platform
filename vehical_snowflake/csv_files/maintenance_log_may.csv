@@ -1,0 +1,41 @@
+work_order_id,vehicle_id,service_date,work_type,technician,labour_hours,parts_cost_inr,downtime_hours,notes
+WO5000,VH1015,15-05-2025,Clutch repair,M.Gupta,7.8,74870,14.5,Predictive alert triggered
+WO5001,VH1016,20-05-2025,Tyre rotation,T.Sharma,4.3,84059,11.1,Predictive alert triggered
+WO5002,VH1023,02-05-2025,Alternator replacement,S.Nair,8.7,84658,47.4,Predictive alert triggered
+WO5003,VH1021,20-05-2025,Oil change,M.Gupta,1.0,22143,3.5,Recurrent issue
+WO5004,VH1020,15-05-2025,DPF cleaning,S.Nair,5.5,5442,14.9,Recurrent issue
+WO5005,VH1021,16-05-2025,Oil change,T.Sharma,4.4,40055,20.7,Predictive alert triggered
+WO5006,VH1003,11-05-2025,Coolant flush,M.Gupta,3.0,34791,6.0,
+WO5007,VH1013,10-05-2025,Battery replacement,T.Sharma,8.6,15629,61.2,
+WO5008,VH1007,02-05-2025,Clutch repair,S.Nair,8.8,28988,29.2,
+WO5009,VH1019,07-05-2025,Turbocharger inspection,R.Patel,1.2,84003,24.6,Customer reported
+WO5010,VH1025,05-05-2025,Coolant flush,T.Sharma,0.6,16965,34.0,Customer reported
+WO5011,VH1006,07-05-2025,Clutch repair,M.Gupta,2.1,74807,53.0,Recurrent issue
+WO5012,VH1014,04-05-2025,Battery replacement,S.Nair,8.9,51799,1.0,Predictive alert triggered
+WO5013,VH1010,07-05-2025,Tyre rotation,S.Nair,9.0,4073,43.7,Predictive alert triggered
+WO5014,VH1004,05-05-2025,Coolant flush,S.Nair,2.7,7019,55.9,Warranty claim
+WO5015,VH1010,03-05-2025,Brake pad replacement,T.Sharma,2.3,52116,46.2,
+WO5016,VH1020,12-05-2025,Alternator replacement,S.Nair,1.6,49822,42.7,Predictive alert triggered
+WO5017,VH1005,06-05-2025,Tyre rotation,R.Patel,8.2,52106,59.1,Recurrent issue
+WO5018,VH1024,06-05-2025,Injector service,A.Khan,6.3,26377,28.6,Customer reported
+WO5019,VH1020,14-05-2025,Oil change,T.Sharma,1.4,11788,37.4,Warranty claim
+WO5020,VH1008,09-05-2025,Battery replacement,M.Gupta,4.7,52829,37.9,
+WO5021,VH1005,16-05-2025,Injector service,M.Gupta,5.7,31436,20.9,Recurrent issue
+WO5022,VH1024,03-05-2025,Turbocharger inspection,S.Nair,4.3,3672,5.3,Recurrent issue
+WO5023,VH1010,17-05-2025,Alternator replacement,A.Khan,1.3,49837,10.8,Customer reported
+WO5024,VH1011,19-05-2025,Tyre rotation,M.Gupta,0.8,69911,2.3,Warranty claim
+WO5025,VH1023,02-05-2025,Oil change,M.Gupta,5.9,42368,35.2,Warranty claim
+WO5026,VH1011,03-05-2025,Brake pad replacement,S.Nair,5.1,19405,53.3,Recurrent issue
+WO5027,VH1011,03-05-2025,Clutch repair,T.Sharma,7.9,47615,30.6,
+WO5028,VH1016,01-05-2025,Alternator replacement,S.Nair,3.7,76579,1.9,
+WO5029,VH1003,21-05-2025,Brake pad replacement,R.Patel,8.0,13381,52.7,Customer reported
+WO5030,VH1024,15-05-2025,Clutch repair,S.Nair,7.6,77646,6.9,Predictive alert triggered
+WO5031,VH1001,20-05-2025,Brake pad replacement,S.Nair,0.7,42163,69.0,
+WO5032,VH1016,16-05-2025,Turbocharger inspection,T.Sharma,3.6,82044,11.2,Predictive alert triggered
+WO5033,VH1007,06-05-2025,DPF cleaning,S.Nair,4.7,69447,18.1,Customer reported
+WO5034,VH1022,07-05-2025,Battery replacement,A.Khan,8.0,34346,28.3,Predictive alert triggered
+WO5035,VH1011,05-05-2025,Tyre rotation,S.Nair,3.5,29011,64.6,
+WO5036,VH1023,09-05-2025,Tyre rotation,T.Sharma,4.3,9906,20.5,Recurrent issue
+WO5037,VH1014,21-05-2025,Injector service,S.Nair,6.2,51641,51.9,Predictive alert triggered
+WO5038,VH1015,03-05-2025,Oil change,R.Patel,7.9,43488,3.9,Warranty claim
+WO5039,VH1019,10-05-2025,Alternator replacement,T.Sharma,5.9,47927,29.8,Recurrent issue
