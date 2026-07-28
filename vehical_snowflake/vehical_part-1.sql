@@ -85,11 +85,6 @@ file_format = (format_name = fleet_db.setup_schema.csv_format)
 pattern = '.*vehicles_master.*[.]csv'
 on_error = 'CONTINUE';
 
-copy into fleet_db.setup_schema.maintenance
-from @fleet_db.setup_schema.maintenance_stage
-file_format = (format_name = fleet_db.setup_schema.csv_format)
-pattern = '.*maintenance_log.*[.]csv'
-on_error = 'CONTINUE';
 
 copy into fleet_db.setup_schema.telemetry_raw (data)
 from @fleet_db.setup_schema.telemetry_stage
@@ -99,7 +94,7 @@ on_error = 'CONTINUE';
 
 select count(*) from fleet_db.setup_schema.vehicles;
 select count(*) from fleet_db.setup_schema.maintenance;
-select count(*) from fleet_db.setup_schema.telemetry_raw;
+
 
 -- ============ typed table from raw json ============
 
@@ -233,9 +228,6 @@ select *
 from fleet_db.setup_schema.vehicles
 at(timestamp => dateadd(minute, -1, current_timestamp()));
 
-describe table fleet_db.setup_schema.vehicles;
-describe table fleet_db.setup_schema.maintenance;
-describe table fleet_db.setup_schema.telemetry_raw;
 
 select * from fleet_db.setup_schema.vehicles_raw;
 select * from fleet_db.setup_schema.maintenance;
