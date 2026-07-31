@@ -7,13 +7,13 @@ create schema fleet_db.setup_schema;
 use database fleet_db;
 use warehouse compute_wh;
 
--- drop integration fleet_s3_int;
+drop integration fleet_s3_int;
 
 create or replace storage integration fleet_s3_int
 type = external_stage
 storage_provider = s3
 enabled = true
-storage_aws_role_arn = 'arn:aws:iam::363437154840:role/Vehical_snowflake'
+storage_aws_role_arn = 'arn:aws:iam::363437154840:role/vehical_snowflake'
 storage_allowed_locations = ('s3://bigdata1ved/Vehical_project_snowflake/');
 
 -- desc integration fleet_s3_int;
@@ -86,7 +86,7 @@ pattern = '.*vehicles_master.*[.]csv'
 on_error = 'CONTINUE';
 
 
-copy into fleet_db.setup_schema.telemetry_raw (data)
+copy into fleet_db.setup_schema.telemetry_raw
 from @fleet_db.setup_schema.telemetry_stage
 file_format = (format_name = fleet_db.setup_schema.json_format)
 pattern = '.*telemetry_batch.*[.]json'
@@ -239,3 +239,35 @@ from fleet_db.setup_schema.vehicles v
 join fleet_db.setup_schema.maintenance m on v.vehicle_id = m.vehicle_id
 group by v.vehicle_id, v.depot
 order by total_downtime desc;
+
+
+--====== Merge ======----
+create or replace task fleet_db.setup_schema.vehicles_task
+warehouse = compute_wh
+schedule = '5 minute'
+as
+-- MERGE Statement --
+merge into fleet_db.setup_schema.vehicles_processed as tgt
+using
+(select vehicle_id,vin,registration_no,make,model,year,depot,status,odometer_km,
+    fuel_type,last_updated from fleet_db.setup_schema.stream_vehicles) as src
+
+on tgt.vehicle_id = src.vehicle_id
+
+when matched then
+update set
+    tgt.vin = src.vin,
+    tgt.registration_no = src.registration_no,
+    tgt.make = src.make,
+    tgt.model = src.model,
+    tgt.year = src.year,
+    tgt.depot = src.depot,
+    tgt.status = src.status,
+    tgt.odometer_km = src.odometer_km,
+    tgt.fuel_type = src.fuel_type,
+    tgt.last_updated = src.last_updated
+
+when not matched then
+insert(vehicle_id,vin,registration_no,make,model,year,depot,status,odometer_km,fuel_type,last_updated)
+values
+(src.vehicle_id,src.vin,src.registration_no,src.make,src.model,src.year,src.depot,src.status,src.odometer_km,src.fuel_type,src.last_updated);
